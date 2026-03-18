@@ -1,4 +1,4 @@
-import useGetCurUserFollowing from "@/client/user/api/use-get-cur-user-following";
+import useGetCurUserFollowing from "@/features/user/api/use-get-cur-user-following";
 import ErrorCard from "@/components/error-card";
 import UserAvatar from "@/components/user-avatar";
 import { ExternalLinkIcon } from "lucide-react";

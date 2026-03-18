@@ -1,9 +1,9 @@
 "use client";
 
-import CommentsSection from "@/client/comment/components/comments-section";
+import CommentsSection from "@/features/comment/components/comments-section";
 
-import useGetPost from "@/client/post/api/use-get-post";
-import PostCard from "@/client/post/components/post-card";
+import useGetPost from "@/features/post/api/use-get-post";
+import PostCard from "@/features/post/components/post-card";
 import ErrorCard from "@/components/error-card";
 import NotFoundCard from "@/components/not-found-card";
 import { Skeleton } from "@/components/ui/skeleton";

@@ -1,4 +1,4 @@
-import useGetCurUserSuggestion from "@/client/user/api/use-get-cur-user-suggestion";
+import useGetCurUserSuggestion from "@/features/user/api/use-get-cur-user-suggestion";
 import ErrorCard from "@/components/error-card";
 import UserAvatar from "@/components/user-avatar";
 import { ExternalLinkIcon } from "lucide-react";

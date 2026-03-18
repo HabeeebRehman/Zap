@@ -1,5 +1,5 @@
-import SignInBtn from "@/client/auth/components/sign-in-btn";
-import SignOutBtn from "@/client/auth/components/sign-out-btn";
+import SignInBtn from "@/features/auth/components/sign-in-btn";
+import SignOutBtn from "@/features/auth/components/sign-out-btn";
 import UserAvatar from "@/components/user-avatar";
 import { currentUser } from "@/lib/auth";
 
