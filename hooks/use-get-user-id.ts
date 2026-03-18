@@ -6,9 +6,9 @@ export const useGetUserId = () => {
     queryKey: ["@AUTH_SESSION_USER_ID"],
     queryFn: async () => {
       const res = await fetch("/api/auth/session", { cache: "no-store" });
-      const session = (await res.json()) as { user: AdapterUser } & AdapterSession;
+      const session = (await res.json()) as { user?: AdapterUser } & AdapterSession;
 
-      return session.user.id;
+      return session?.user?.id || null;
     },
     staleTime: Infinity,
   });

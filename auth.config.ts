@@ -4,7 +4,7 @@ import Credentials from "next-auth/providers/credentials";
 import { signInFormSchema } from "./validators";
 
 import bcrypt from "bcryptjs";
-import { getUserWithEmail } from "./client/auth/libs/get-user-with-email";
+import { getUserWithEmail } from "./features/auth/libs/get-user-with-email";
 
 export default {
   providers: [

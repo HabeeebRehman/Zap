@@ -1,9 +1,9 @@
 "use client";
 
-import useGetUserPosts from "@/client/post/api/use-get-user-posts";
-import PostsContainer from "@/client/post/components/posts-container";
-import useGetUser from "@/client/user/api/use-get-user";
-import UserInfoHeader from "@/client/user/components/user-info-header";
+import useGetUserPosts from "@/features/post/api/use-get-user-posts";
+import PostsContainer from "@/features/post/components/posts-container";
+import useGetUser from "@/features/user/api/use-get-user";
+import UserInfoHeader from "@/features/user/components/user-info-header";
 import ErrorCard from "@/components/error-card";
 import NotFoundCard from "@/components/not-found-card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -17,17 +17,21 @@ export default function UserPage({ params: { userId } }: props) {
   const userPostsQuery = useGetUserPosts({ userId });
 
   const isError = userQuery.isError || userPostsQuery.isError;
-  const isLoading = userQuery.isLoading || userQuery.isPending || userPostsQuery.isLoading || userPostsQuery.isPending || !curUserId;
+  const isLoading = userQuery.isLoading || userQuery.isPending || userPostsQuery.isLoading || userPostsQuery.isPending || (curUserId === undefined);
 
   if (isError) return <ErrorCard />;
   if (isLoading) return <UserInfoHeaderSkeleton />;
   if (!userQuery.data) return <NotFoundCard />;
 
   return (
-    <div className="p-3 h-full overflow-y-auto pb-16">
-      <UserInfoHeader user={{ ...userQuery.data, backgroundImage: null }} curUserId={curUserId} />
+    <div className="flex flex-col h-full bg-card">
+      <div className="p-3 overflow-y-auto flex-1">
+        <UserInfoHeader user={{ ...userQuery.data, backgroundImage: null }} curUserId={curUserId || ""} />
 
-      <PostsContainer posts={userPostsQuery.data} curUserId={curUserId} />
+        <div className="mt-6">
+          <PostsContainer posts={userPostsQuery.data} curUserId={curUserId || ""} />
+        </div>
+      </div>
     </div>
   );
 }
